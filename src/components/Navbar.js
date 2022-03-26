@@ -62,7 +62,7 @@ function Navbar() {
                 </a>
                 <a class="sub-nav-link" href="#">
                     <div class="nav-column">
-                        <p class="download-title"><span class="text-highlight">Connect</span></p>
+                        <p class="connect-title"><span class="text-highlight">Connect</span></p>
                         <img class="subnav-icon" src="images/connect_icon.svg"></img>
                     </div>
                 </a>

@@ -64,6 +64,11 @@
   color: var(--primaryOrangeColor);
 }
 
+.connect-title {
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
 .text-highlight {
   font-weight: 600;
 }
