@@ -1,15 +1,14 @@
 .navbar {
   background: transparent;
   max-height: 100%;
-  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 45px;
   padding: 30px;
   letter-spacing: 2;
-  position: sticky;
   top: 0;
+  position: sticky;
   z-index: 999;
 }
 
@@ -40,9 +39,69 @@
   align-items: center;
 }
 
+.gg-layout-grid {
+  transform: scale(var(--ggs,1))
+}
+.gg-layout-grid,
+.gg-layout-grid::after,
+.gg-layout-grid::before {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  color: #fff;
+  width: 20px;
+  height: 20px
+}
+.gg-layout-grid::after,
+.gg-layout-grid::before {
+  content: "";
+  position: absolute;
+  height: 8px;
+  border-left: 8px solid;
+  border-right: 8px solid
+}
+.gg-layout-grid::before {
+  top: 0
+}
+.gg-layout-grid::after {
+  bottom: 0
+}
+
+.gg-close {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 0px
+}
+.gg-close::after,
+.gg-close::before {
+  color: #fff;
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 24px;
+  height: 4px;
+  background: currentColor;
+  transform: rotate(45deg);
+  border-radius:0px;
+  top: 6px;
+  left: -3px
+}
+.gg-close::after {
+  transform: rotate(-45deg)
+}
+
+
 .subnav-icon {
   width: 44px;
   height: 36.57px;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .download-title {
@@ -86,6 +145,8 @@
 
 .logo-icon {
   margin-right: 10px;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .logo-name { 
@@ -104,8 +165,81 @@
 }
 
 .menu_profile {
-  border: solid 1px #ffffff;
+  border: solid 1px var(--primaryOrangeColor);
   padding: 20px;
+  height: 116.63px;
+  width: 116.63px;
+  clip-path: polygon(100% 0%,100% 100%,30% 100%,0% 70%,0% 0%);
+}
+
+.menu-profile::after {
+  content: "";
+  position: absolute;
+  height: 112.63px;
+  width: 112.63px;
+  top: 120px;
+  bottom-left: -1px;
+  border-left: 3px solid var(--primaryOrangeColor);
+  transform: rotate(45deg);
+  transform-origin: left;
+
+}
+
+.menu-title {
+  color: #ffffff;
+  font-size: 26px;
+  margin-top: 0px;
+}
+
+.email-information {
+  font-size: 22px;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 200;
+  margin-top: 0px;
+  height: fit-content;
+}
+.social-link {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.social-icon {
+  height: 29px;
+  width: auto;
+  padding-right: 30px;
+  -webkit-user-drag: none;
+  user-drag: none;
+
+}
+.sub-menu-title {
+  font-weight: 200;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.sub-row-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.download-icon {
+  margin-right: 15px;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+.sub-row:first-of-type {
+  margin-top: 0px;
+  margin-left: 30px;
+}
+
+.sub-row {
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
 .menu-icon {
@@ -118,18 +252,28 @@
   position: absolute;
   width: 57px;
   height: 57px;
-  border: solid 1px white;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  clip-path:polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - var(--ui-notch-amount) + 2px),
-    calc(100% - var(--ui-notch-amount) + 2px) 100%,
-    0 100%
-  );
+  background-color: transparent;
+  border: 1px solid #fff;
+  cursor: pointer;
+  color: #fff;
+  clip-path: var(--ui-notch-path);
+}
+
+.menu-outline::after {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 59px;
+  top: 42px;
+  right: -1px;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg);
+  transform-origin: right;
+
 }
 
 .nav-menu {
@@ -150,8 +294,12 @@
   margin-right: auto;
 }
 
-.menu-row {
-  flex: 1 1 auto;
+.menu-column {
+  flex: 1 1 50%;
+}
+
+.menu-column:last-of-type {
+  display: flex;
 }
 
 .nav-item {
@@ -161,6 +309,7 @@
 .nav-links {
   color: #fff;
   display: flex;
+  text-align: center;
   font-weight: 800;
   align-items: center;
   text-decoration: none;
@@ -168,17 +317,30 @@
   height: 100%;
 }
 
+.download-title {
+  font-size: 20px;
+}
+
+.connect-title {
+  font-size: 20px;
+}
+
+
+.nav-links:hover {
+  -webkit-text-stroke: 2px var(--primaryOrangeColor);
+  color: transparent;
+}
+
 .nav-title {
   font-weight: 600;
 }
 
-.nav-links:hover {
-  transition: all 0.2s ease-out;
-
-}
-
 .fa-bars {
   color: #fff;
+}
+
+.nav-list {
+  list-style-type: none;
 }
 
   .NavbarItems {
@@ -194,7 +356,7 @@
     top: 0px;
     left: -100%;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: height 800ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .nav-menu.active {
@@ -204,19 +366,15 @@
     background: #20232B;
     left: 0;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: height 800ms cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 1;
   }
 
   .nav-links {
     text-align: left;
     width: 100%;
+    text-decoration: none;
     display: table;
-  }
-
-  .nav-links:hover {
-    -webkit-text-stroke: 2px var(--primaryOrangeColor);
-    color: transparent;
   }
 
   .menu-icon {
@@ -228,6 +386,35 @@
   .fa-times {
     color: #fff;
     font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 1400px) {
+    .navbar {
+      padding: 60px;
+    }
+
+    .subnavbar-container {
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-bottom: 60px; 
+
+    }
+
+  }
+
+  @media only screen and (max-width: 1300px) {
+    .menu-column:last-of-type {
+      display: none;
+    }
+
+    .menu-container {
+      min-width: 100%;
+    }
+
+    .nav-links{
+      text-align: center;
+      max-width: 100%;
+    }
   }
 
 
@@ -251,4 +438,61 @@
   .nav-links-mobile:hover {
     color: var(--primaryOrangeColor);
     transition: 250ms;
+  }
+
+  @media only screen and (max-width: 1076px) {
+
+  }
+
+  @media only screen and (min-width: 800px) {
+    
+    .nav-links {
+      font-size: 35px;
+    }
+
+    .logo-name {
+      font-size: 24px;
+    }
+
+
+    .download-title {
+      font-size: 22px;
+    }
+
+    .connect-title {
+      font-size: 20px;
+    }
+  }
+
+
+
+  @media only screen and (min-width: 400px) {
+    .logo-name {
+      font-size: 20px;
+    }
+
+
+    .download-title {
+      font-size: 16px;
+    }
+
+    .connect-title {
+      font-size: 16px;
+    }
+  }
+
+
+  @media only screen and (min-width: 500px) {
+    .logo-name {
+      font-size: 18px;
+    }
+
+
+    .download-title {
+      font-size: 16px;
+    }
+
+    .connect-title {
+      font-size: 16px;
+    }
   }
